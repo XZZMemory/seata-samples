@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface UserFeignClient {
 
     @GetMapping("/reduce")
-    Boolean reduce(@RequestParam("userId") String userId, @RequestParam("money") int money);
+    String reduce(@RequestParam("userId") String userId, @RequestParam("money") int money);
 }

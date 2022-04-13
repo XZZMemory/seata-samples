@@ -54,7 +54,7 @@
         <module>account</module>
         <module>storage</module>
         <module>order</module>
-        <module>eureka</module>
+        <module>discover-server</module>
     </modules>
     <dependencyManagement>
         <dependencies>

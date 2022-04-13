@@ -14,7 +14,8 @@ public class AccountService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public void reduce(String userId, int money) {
-        jdbcTemplate.update("update account_tbl set money = money - ? where user_id = ?", new Object[] {money, userId});
+    public int reduce(String userId, int money) {
+        int result = jdbcTemplate.update("update account_tbl set money = money - ? where user_id = ?", new Object[]{money, userId});
+        return result;
     }
 }

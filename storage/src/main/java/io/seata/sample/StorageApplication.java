@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -20,6 +21,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
  */
 @SpringBootApplication
 @EnableEurekaClient
+@ComponentScan(value = {"io.seata.sample"})
 public class StorageApplication {
 
     public static void main(String[] args) {

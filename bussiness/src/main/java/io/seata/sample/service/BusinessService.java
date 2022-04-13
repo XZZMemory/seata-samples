@@ -35,9 +35,12 @@ public class BusinessService {
      */
     @GlobalTransactional
     public void purchase(String userId, String commodityCode, int orderCount) {
-        storageFeignClient.deduct(commodityCode, orderCount);
-
-        orderFeignClient.create(userId, commodityCode, orderCount);
+        System.out.println("【业务系统】doing... userId:" + userId + " commodityCode:{}" + commodityCode + " orderCount:" + orderCount);
+        Boolean storageResult = storageFeignClient.deduct(commodityCode, orderCount);
+        System.out.println("【业务系统】storageResult:" + storageResult);
+        storageResult = orderFeignClient.create(userId, commodityCode, orderCount);
+        System.out.println("【业务系统】orderResult:" + storageResult);
+        System.out.println("【业务系统】end...");
 
         if (!validData()) {
             throw new RuntimeException("账户或库存不足,执行回滚");

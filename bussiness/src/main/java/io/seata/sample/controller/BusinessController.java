@@ -23,6 +23,7 @@ public class BusinessController {
      */
     @RequestMapping(value = "/purchase/commit", produces = "application/json")
     public String purchaseCommit() {
+        System.out.println("【业务系统】提交start...");
         try {
             businessService.purchase("U100000", "C100000", 30);
         } catch (Exception exx) {
@@ -40,6 +41,7 @@ public class BusinessController {
      */
     @RequestMapping("/purchase/rollback")
     public String purchaseRollback() {
+        System.out.println("【业务系统】异常start...");
         try {
             businessService.purchase("U100000", "C100000", 99999);
         } catch (Exception exx) {
